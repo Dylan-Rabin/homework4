@@ -33,10 +33,13 @@ nav a{
   text-decoration: none; 
 }
 
-/*Your Code Here*/
-/*Write selector/rule property to add an underline when
-links in the navigation are in the hover or focus state.*/
+nav a:hover{
+  text-decoration: underline;
+}
 
+nav a:focus{
+  text-decoration: underline;
+}
 
 .skip a{
   background: white;
@@ -45,21 +48,32 @@ links in the navigation are in the hover or focus state.*/
   -webkit-transition: top 1s ease-out;
   transition: top 1s ease-out;
   z-index: 1;
-
-  /*Your code here*/
+  position: absolute;
+  top: -40px;
 }
 
 /*Your Code Here*/
 /*Write selector/rule property to position the skip class element*/
-
+.skip a:focus{
+  position: absolute;
+  top: 0px;
+}
 /*Your Code Here*/
 /*Write selector/rule property to style all elements when in focus*/
-
+*:focus{
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+}
 
 nav{
   background-color: #ddd;
   padding: 25px 0; 
   text-align: left;
+  grid-column: 1 /-1;
+  grid-row: 1 / auto;
+  
+  
 }
 
 footer{
@@ -67,13 +81,17 @@ footer{
   color: white;
   padding-top: 30px;
   text-align: center;
+  grid-column: 1 / -1;
+  grid-row: 7 / auto;
 }
 
 
 
-
 .container{
-  /*Your Code Here*/
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: repeat(5,auto);
+  grid-row-gap: 15px;
 }
 
 header{
@@ -83,11 +101,8 @@ header{
   background-size: cover;       /* Parallax effect */
   color: white;
   height: 400px;                /* Parallax effect */
-
-  /*Your Code Here*/
-  /*Set background-image to header.jpg */
- 
-
+  background-image: url('../images/header.jpg');
+  background-color: white;
   grid-column: 1 / -1;  /*Can you explain what this does?*/
   grid-row: 1 / auto;   /*Can you rewrite it?*/
 }
@@ -100,34 +115,36 @@ header p{
 }
 
 .about, .method, .clients, .contact{
-  /*Your Code Here*/
-
+  grid-column: 2/ auto;
+  
 }
 
 .about-image, .method-image, .clients-image, .contact-image{
-  /*Your Code Here*/
+  grid-column: 1 / -1;
+  max-height: 700px;
+  overflow: hidden;
 
 }
 
 .about, .about-image{
-   /*Your Code Here*/
+   grid-row: 2/3;
 
 }
 
 .method, .method-image{
-   /*Your Code Here*/
+  grid-row: 3/4;
 
 }
 
 
 .clients, .clients-image{
-    /*Your Code Here*/
+  grid-row: 4/5;
 
 }
 
 
 .contact, .contact-image{
-    /*Your Code Here*/
+  grid-row: 5/6;
 
 }
 
@@ -135,7 +152,7 @@ header p{
 background-color: rgba(255, 255, 255, .8);
   border: 10px solid black;
   padding: 30px;
-  /*Your code here:*/
+  align-self: center;
 
 }
 
